@@ -1,20 +1,21 @@
 #ifndef _MY_COMPLEX_H_
 #define _MY_COMPLEX_H_
+
 #include <iostream>
 
 using namespace std;
 
-class Complex
+class Complex  //управл€юща€ конструкци€ (class)
 {
     double Re; //вещественна€ часть комплексного числа
 	double Im; //мнима€ часть комплексного числа
 
 	public:
 
-    Complex(double aRe=0, double aIm=0); //контруктор
-    Complex(const Complex&); //контруктор
+    Complex(double aRe=0, double aIm=0); //контруктор создани€ объекта
+    Complex(const Complex&);             //контруктор копировани€
 
-    ~Complex(); //деструктор
+    ~Complex();                          //деструктор
 
     void Set(double aRe, double aIm=0);
 
