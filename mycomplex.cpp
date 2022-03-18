@@ -3,9 +3,12 @@
 #include "mycomplex.h"
 
 using namespace std;
+
 //-------------------------------------------
 Complex::Complex(double aRe  , double   aIm)
 {
+    //консруктор класса Complex
+
     Re = aRe;
     Im = aIm;
 }
@@ -13,6 +16,8 @@ Complex::Complex(double aRe  , double   aIm)
 //-------------------------------------------
 Complex::Complex(const Complex& aRval)
 {
+    //консруктор копирования класса Complex
+
     Re = aRval.Re;
     Im = aRval.Im;
 }
@@ -20,6 +25,8 @@ Complex::Complex(const Complex& aRval)
 //-------------------------------------------
 Complex::~Complex()
 {
+    //деконсруктор объекта класса Complex
+
     Re = 0.0;
     Im = 0.0;
 }
@@ -27,6 +34,8 @@ Complex::~Complex()
 //-------------------------------------------
 void Complex::Set(double aRe,double aIm)
 {
+    //сеттер, устанавливает комплексное число
+
     Re = aRe;
     Im = aIm;
 }
@@ -34,18 +43,28 @@ void Complex::Set(double aRe,double aIm)
 //-------------------------------------------
 Complex::operator double()
 {
+    //переопределенный оператор(),
+    //возвращает модуль комплексного числа
+    //возвращает double
+
     return abs();
 }
 
 //-------------------------------------------
 double Complex::abs()
 {
+    //возвращает модуль комплексного числа
+    //возвращает double
+
     return sqrt(Re * Re + Im * Im);
 }
 
 //-------------------------------------------
 Complex Complex::operator+ (const Complex & aRval)
 {
+    //определение оператора сложения комплексных чисел
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re = Re + aRval.Re;
@@ -55,8 +74,11 @@ Complex Complex::operator+ (const Complex & aRval)
 }
 
 //-------------------------------------------
-  Complex   Complex::operator- (const Complex & aRval)
+  Complex Complex::operator- (const Complex & aRval)
 {
+    //определение оператора вычитания комплексных чисел
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re = Re - aRval.Re;
@@ -68,6 +90,10 @@ Complex Complex::operator+ (const Complex & aRval)
 //-------------------------------------------
 Complex Complex::operator+ (const double& aval)
 {
+    //определение оператора сложения комплексных
+    //чисел с вещественным числом
+    //возвращает Complex
+
     Complex result;
 
     result.Re = Re +aval;
@@ -79,7 +105,12 @@ Complex Complex::operator+ (const double& aval)
 //-------------------------------------------
 Complex Complex::operator- (const  double& aRval)
 {
+    //определение оператора вычитания комплексных
+    //чисел с вещественным числом
+    //возвращает Complex
+
     Complex Result(*this);
+
     Result.Re = Re - aRval;
 
     return Result;
@@ -88,6 +119,9 @@ Complex Complex::operator- (const  double& aRval)
 //-------------------------------------------
 Complex Complex::operator* ( const Complex& aRval)
 {
+    //определение оператора умножения комплексных чисел
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re = Re * aRval.Re - Im * aRval.Im;
@@ -99,6 +133,10 @@ Complex Complex::operator* ( const Complex& aRval)
 //-------------------------------------------
 Complex Complex::operator* (const double& aRval)
 {
+    //определение оператора умножения комплексных
+    //чисел с вещественным числом
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re =Re*aRval;
@@ -110,6 +148,10 @@ Complex Complex::operator* (const double& aRval)
 //-------------------------------------------
 Complex Complex::operator/ (const double& aRval)
 {
+    //определение оператора деления комплексного числа
+    //на вещественное число
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re = Re / aRval;
@@ -121,6 +163,10 @@ Complex Complex::operator/ (const double& aRval)
 //-------------------------------------------
 Complex& Complex::operator+= (const Complex& arval)
 {
+    //определение оператора сложения с присвоением
+    //для двух комплексных чисел
+    //возвращает ссылку на Complex
+
     Re += arval.Re;
     Im += arval.Im;
 
@@ -130,14 +176,23 @@ Complex& Complex::operator+= (const Complex& arval)
 //-------------------------------------------
 Complex& Complex::operator-= (const Complex& aRval)
 {
+    //определение оператора вычитания с присвоением
+    //для двух комплексных чисел
+    //возвращает ссылку на Complex
+
     Re -= aRval.Re;
     Im -= aRval.Im;
+
     return *this;
 }
 
 //-------------------------------------------
 Complex& Complex::operator*=(const Complex&aRval)
 {
+    //определение оператора умножения с присвоением
+    //для двух комплексных чисел
+    //возвращает ссылку на Complex
+
     double tmpRe = Re;
 
     Re = Re * aRval.Re - Im * aRval.Im;
@@ -149,21 +204,34 @@ Complex& Complex::operator*=(const Complex&aRval)
 //-------------------------------------------
 Complex& Complex::operator+= (const double& aRval)
 {
+    //определение оператора сложения с присвоением
+    //для комплексного числа с вещественным
+    //возвращает ссылку на Complex
+
     Re += aRval;
+
     return *this;
-}
+ }
 
 //-------------------------------------------
 Complex& Complex::operator-= (const double&aRval)
 {
+    //определение оператора вычитания с присвоением
+    //для комплексного числа с вещественным
+    //возвращает ссылку на Complex
+
     Re -= aRval;
 
     return *this;
 }
 
 //-------------------------------------------
-Complex& Complex::operator*=  ( const  double&  aRval)
+Complex& Complex::operator*= (const double& aRval)
 {
+    //определение оператора умножения с присвоением
+    //для комплексного числа с вещественным
+    //возвращает ссылку на Complex
+
     Re *= aRval;
     Im *= aRval;
 
@@ -171,9 +239,14 @@ Complex& Complex::operator*=  ( const  double&  aRval)
 }
 
 //-------------------------------------------
-Complex& Complex::operator/= (const double&aRval)
+Complex& Complex::operator/= (const double& aRval)
 {
-    Re/=aRval; Im /=aRval;
+    //определение оператора деления комплексного
+    //числа на вещественное с присвоением
+    //возвращает ссылку на Complex
+
+    Re /= aRval;
+    Im /= aRval;
 
     return *this;
 }
@@ -181,6 +254,8 @@ Complex& Complex::operator/= (const double&aRval)
 //-------------------------------------------
 Complex& Complex::operator= (const Complex& aRval)
 {
+    //определение оператора присвоения комплексного числа
+    //возвращает ссылку на Complex
     Re=aRval.Re;
     Im=aRval.Im;
 
@@ -190,6 +265,9 @@ Complex& Complex::operator= (const Complex& aRval)
 //-------------------------------------------
 Complex& Complex::operator= (const double& aRval)
 {
+    //определение оператора присвоения вещественного числа
+    //возвращает ссылку на Complex
+
     Re = aRval;
     Im = 0.0;
 
@@ -197,20 +275,24 @@ Complex& Complex::operator= (const double& aRval)
 }
 
 //-------------------------------------------
-istream& operator>> (istream &stream, Complex&a)
+istream& operator>> (istream& stream, Complex& a)
 {
+    //определение потока ввода
+
     char tmp[256];
+
     stream >> a.Re >> a.Im >> tmp;
 
     return stream;
 }
 
 //-------------------------------------------
-ostream& operator<<(ostream&stream,Complex&a)
+ostream& operator<< (ostream& stream, Complex& a)
 {
+    //определение потока вывода
     stream << a.Re;
 
-    if(!(a.Im < 0) )
+    if(!(a.Im < 0))
         stream << '+';
 
     stream << a.Im << 'i';
@@ -221,6 +303,9 @@ ostream& operator<<(ostream&stream,Complex&a)
 //-------------------------------------------
 Complex operator+ (const double& aLval, const Complex& aRval)
 {
+    //определяет сложение вещественного числа с комплексным
+    //возвращает Complex
+
     Complex Result;
 
     Result.Re = aLval + aRval.Re;
@@ -232,6 +317,9 @@ Complex operator+ (const double& aLval, const Complex& aRval)
 //-------------------------------------------
 Complex operator-(const double &aLval, const Complex&aRval)
 {
+    //определяет вычитание из вещественного числа комплексного
+    //возвращает Complex
+
     Complex Result;
     Result.Re = aLval - aRval.Re;
     Result.Im = -aRval.Im;
@@ -242,6 +330,9 @@ Complex operator-(const double &aLval, const Complex&aRval)
 //-------------------------------------------
 Complex operator* (const double& aLval, const Complex& a)
 {
+    //определяет умнодение вещественного числа на комплексное
+    //возвращает Complex
+
     Complex r;
 
     r.Re =aLval* a.Re;
