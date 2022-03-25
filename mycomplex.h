@@ -1,3 +1,8 @@
+ï»¿/*!
+	@file
+	@brief Ð—Ð°Ð³Ð¾Ð»Ð¾Ð²Ð¾Ñ‡Ð½Ñ‹Ð¹ Ñ„Ð°Ð¹Ð» ÐºÐ»Ð°ÑÑÐ° Complex
+*/
+
 #ifndef _MY_COMPLEX_H_
 #define _MY_COMPLEX_H_
 
@@ -5,50 +10,58 @@
 
 using namespace std;
 
-class Complex  //óïðàâëÿþùàÿ êîíñòðóêöèÿ (class)
+/*!
+	@brief ÐšÐ»Ð°ÑÑ ÐºÐ¾Ð¼Ð¿Ð»ÐµÐºÑÐ½Ð¾Ð³Ð¾ Ñ‡Ð¸ÑÐ»Ð°
+*/
+class Complex
 {
-	double Re; //âåùåñòâåííàÿ ÷àñòü êîìïëåêñíîãî ÷èñëà
-	double Im; //ìíèìàÿ ÷àñòü êîìïëåêñíîãî ÷èñëà
-
+	/*!
+		@brief Ð”ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð°Ñ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÑŽÑ‰Ð°Ñ
+	*/
+	double Re;
+	/*!
+		@brief ÐœÐ½Ð¸Ð¼Ð°Ñ ÑÐ¾ÑÑ‚Ð°Ð²Ð»ÑÑŽÑ‰Ð°Ñ
+	*/
+	double Im;
 public:
 
-	Complex(double aRe = 0, double aIm = 0); //êîíòðóêòîð ñîçäàíèÿ îáúåêòà
-	Complex(const Complex&);             //êîíòðóêòîð êîïèðîâàíèÿ
-	~Complex();                          //äåñòðóêòîð
+	Complex(double aRe = 0, double aIm = 0); //ÐºÐ¾Ð½Ñ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ Ð¾Ð±ÑŠÐµÐºÑ‚Ð°
+	Complex(const Complex&);             //ÐºÐ¾Ð½Ñ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€ ÐºÐ¾Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ
+	~Complex();                          //Ð´ÐµÑÑ‚Ñ€ÑƒÐºÑ‚Ð¾Ñ€
 
 	void Set(double aRe, double aIm = 0);
 	operator double();
 	double abs();
 
-	//ïåðåîïðåäåëåíèå îïåðàòîðîâ ñäâèãà â IO ïîòîê
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð² ÑÐ´Ð²Ð¸Ð³Ð° Ð² IO Ð¿Ð¾Ñ‚Ð¾Ðº
 	friend istream& operator>> (istream&, Complex&);
 	friend ostream& operator<< (ostream&, Complex&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòàòîðîâ ñëîæåíèÿ
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð°Ñ‚Ð¾Ñ€Ð¾Ð² ÑÐ»Ð¾Ð¶ÐµÐ½Ð¸Ñ
 	Complex operator+ (const Complex&);
 	Complex operator+ (const double&);
 	friend Complex operator+ (const double&, const Complex&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòàòîðîâ âû÷èòàíèÿ
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð°Ñ‚Ð¾Ñ€Ð¾Ð² Ð²Ñ‹Ñ‡Ð¸Ñ‚Ð°Ð½Ð¸Ñ
 	Complex operator- (const Complex&);
 	Complex operator- (const double&);
 	friend Complex operator- (const double&, const Complex&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòàòîðîâ óìíîæåíèÿ
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð°Ñ‚Ð¾Ñ€Ð¾Ð² ÑƒÐ¼Ð½Ð¾Ð¶ÐµÐ½Ð¸Ñ
 	Complex operator* (const Complex&);
 	Complex operator* (const double&);
 	friend Complex operator* (const double&, const Complex&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòàòîðîâ äåëåíèÿ
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð°Ñ‚Ð¾Ñ€Ð¾Ð² Ð´ÐµÐ»ÐµÐ½Ð¸Ñ
 	Complex operator/ (const double&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòîðîâ ïðèñâàèâàíèÿ êîìïëåêñíûõ ÷èñåë
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð² Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ ÐºÐ¾Ð¼Ð¿Ð»ÐµÐºÑÐ½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ»
 	Complex& operator += (const Complex&);
 	Complex& operator -= (const Complex&);
 	Complex& operator *= (const Complex&);
 	Complex& operator =  (const Complex&);
 
-	//ïåðåîïðåäåëåíèå îïåðàòîðîâ ïðèñâàèâàíèÿ âåùåñòâåííûõ ÷èñåë
+	//Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ‚Ð¾Ñ€Ð¾Ð² Ð¿Ñ€Ð¸ÑÐ²Ð°Ð¸Ð²Ð°Ð½Ð¸Ñ Ð²ÐµÑ‰ÐµÑÑ‚Ð²ÐµÐ½Ð½Ñ‹Ñ… Ñ‡Ð¸ÑÐµÐ»
 	Complex& operator += (const double&);
 	Complex& operator -= (const double&);
 	Complex& operator *= (const double&);
