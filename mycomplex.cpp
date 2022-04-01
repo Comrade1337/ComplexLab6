@@ -38,6 +38,7 @@ Complex::Complex(const Complex& aRval)
 */
 Complex::~Complex()
 {
+	int ngfn;
 	Re = 0.0;
 	Im = 0.0;
 }

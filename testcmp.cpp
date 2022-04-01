@@ -18,6 +18,7 @@ int main() // управляющая конструкция (заголовок 
 			B(-4),
 			C(23.0, 45.9);
 
+	 
 	cout << A << "," << B << "," << C << endl << endl;
 	A = B + C;
 	cout << "A = B + C, A = " << A << endl;
@@ -33,6 +34,6 @@ int main() // управляющая конструкция (заголовок 
 	cin >> D;
 	A += C + D;
 	cout << "D = " << D << endl;
-    cout << "A += C + D, A = " << A << endl;
+    	cout << "A += C + D, A = " << A << endl;
 	return 0;
 }
