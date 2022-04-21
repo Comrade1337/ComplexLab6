@@ -1,6 +1,6 @@
 ﻿/*!
-	@file
-	@brief Файл с описанием методов класса комплексного числа
+    @file
+    @brief Файл с описанием методов класса комплексного числа
 */
 
 #include <iostream>
@@ -25,7 +25,7 @@ Complex::Complex(double aRe, double aIm)
 /*!
     @brief Консруктор копирования класса Complex
     @param aRval Комплексное число
-*/
+*/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
 Complex::Complex(const Complex& aRval)
 {
 	Re = aRval.Re;

@@ -34,6 +34,6 @@ int main() // управляющая конструкция (заголовок 
 	cin >> D;
 	A += C + D;
 	cout << "D = " << D << endl;
-    	cout << "A += C + D, A = " << A << endl;
+    cout << "A += C + D, A = " << A << endl;
 	return 0;
 }
