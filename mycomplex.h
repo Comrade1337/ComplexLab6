@@ -15,13 +15,13 @@ using namespace std;
 */
 class Complex
 {
-	/*!
+/*!
     @brief Действительная составляющая
-	*/
+*/
 	double Re;
-	/*!
+/*!
     @brief Мнимая составляющая
-	*/
+*/
 	double Im;
 public:
 
